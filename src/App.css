@@ -36,3 +36,38 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+.home-container{
+  background-color: rgb(255, 247, 247);
+  color: rgb(206, 192, 0);
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-container {
+  background-color: rgb(255, 247, 247);
+  color: rgb(206, 192, 0);
+  font-size: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+}
+
+.button {
+      display: inline-block;
+      vertical-align: middle;
+      padding-left: 80px;
+      padding-right: 80px;
+      font-size: 30px;
+      font-weight: bold;
+      color: #083485;
+      font-family: 'Roboto', sans-serif;
+}
