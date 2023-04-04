@@ -2,6 +2,8 @@ import React from 'react';
 
 import { auth } from '../services/firebase'
 
+import ThreadPage from '../pages/ThreadPage';
+
 import '../App.css';
 
 const Home = ({ user }) => {
@@ -10,6 +12,7 @@ const Home = ({ user }) => {
       <h1>Welcome to pokemon forum, <span></span>{user.displayName}</h1>
       <img src={user.photoURL} alt="" />
       <button className="button signout" onClick={() => auth.signOut()}>Sign out</button>
+      <ThreadPage />
     </div>
   )
 }

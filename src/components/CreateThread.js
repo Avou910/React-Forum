@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { auth } from "../services/firebase";
 
 const CreateThread = (props) => {
   const titleRef = useRef("");
@@ -7,8 +8,11 @@ const CreateThread = (props) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    const user = auth.currentUser;
+    const userUid = user.uid;
+
     const newThread = {
-      userKey: "temp", //for testing
+      userKey: userUid,
       title: titleRef.current.value,
       content: contentRef.current.value,
     };
@@ -22,9 +26,11 @@ const CreateThread = (props) => {
     <form onSubmit={handleSubmit}>
       <h2>Create New Thread</h2>
       <label htmlFor="title">Title</label>
+      <br />
       <input type="text" id="title" ref={titleRef} />
       <br />
       <label htmlFor="content">Content</label>
+      <br />
       <textarea id="content" ref={contentRef} />
       <br />
       <button type="submit">Submit</button>

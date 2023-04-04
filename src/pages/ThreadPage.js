@@ -6,11 +6,11 @@ import CreateThread from "../components/CreateThread";
 
 const ThreadPage = () => {
   const [threads, setThreads] = useState([]);
-  const postRef = collection(firestore, "threads");
+  const threadRef = collection(firestore, "threads");
 
   const fetchThreads = async () => {
     try {
-      const query = await getDocs(postRef);
+      const query = await getDocs(threadRef);
       const fetchThreads = [];
       query.forEach((doc) => {
         fetchThreads.push({
@@ -28,17 +28,17 @@ const ThreadPage = () => {
   };
 
   const postThread = async (thread) => {
-    try {
-      const threadRef = await addDoc(postRef, {
-        userKey: thread.userKey,
-        title: thread.title,
-        content: thread.content,
-      });
-      fetchThreads();
-    } catch (error) {
-      console.log("Error creating thread: ", error);
-    }
-  };
+  try {
+    const threadContent = await addDoc(threadRef, {
+      userKey: thread.userKey,
+      title: thread.title,
+      content: thread.content,
+    });
+    fetchThreads();
+  } catch (error) {
+    console.log("Error creating thread: ", error);
+  }
+};
 
   useEffect(() => {
     fetchThreads();
