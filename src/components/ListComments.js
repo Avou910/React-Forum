@@ -10,7 +10,7 @@ const ListComments = (props) => {
       <ul>
         {props.comments.map((comment) => (
           <div key={comment.key}>
-            <b>{comment.userKey}</b>
+            <b>{comment.userName}</b>
             <br />
             <b>
               <i>{reactTimestamp(comment.timestamp)}</i>

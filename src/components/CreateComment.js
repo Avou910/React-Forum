@@ -1,37 +1,35 @@
 import { useRef } from "react";
-
-/*
-TODO
-    - use auth to get username 
-        + remove userKey field
-*/
+import { auth } from "../services/firebase";
 
 const CreateComment = (props) => {
-  const userKeyRef = useRef(""); // for debug only remove later
+  const userKey =
+    auth.currentUser != null ? auth.currentUser.uid : "invalid user";
+  const userName =
+    auth.currentUser != null ? auth.currentUser.displayName : "Null";
   const commentRef = useRef("");
 
   const submitHandler = (event) => {
     event.preventDefault();
 
     const comment = {
-      userKey: userKeyRef.current.value,
+      userKey: userKey,
+      userName: userName,
       comment: commentRef.current.value,
     };
     props.postComment(comment);
 
-    userKeyRef.current.value = "";
     commentRef.current.value = "";
   };
   return (
     <>
       <form onSubmit={submitHandler}>
         <div>
-          <label htmlFor="text">userKey</label>
+          <b>User name:</b>
           <br></br>
-          <input id="text" ref={userKeyRef}></input>
+          {userName}
         </div>
         <div>
-          <label htmlFor="text">comment</label>
+          <b>Comment:</b>
           <br></br>
           <textarea id="text" ref={commentRef}></textarea>
         </div>

@@ -12,6 +12,7 @@ import { getFirestore } from "firebase/firestore";
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
+// this probaly should use .env variables?
 const firebaseConfig = {
   apiKey: "AIzaSyBKZGs-AYq1fdKdR88UwKw_vbulBsgzQDk",
 

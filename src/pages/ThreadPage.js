@@ -28,17 +28,17 @@ const ThreadPage = () => {
   };
 
   const postThread = async (thread) => {
-  try {
-    const threadContent = await addDoc(threadRef, {
-      userKey: thread.userKey,
-      title: thread.title,
-      content: thread.content,
-    });
-    fetchThreads();
-  } catch (error) {
-    console.log("Error creating thread: ", error);
-  }
-};
+    try {
+      const threadContent = await addDoc(threadRef, {
+        userKey: thread.userKey,
+        title: thread.title,
+        content: thread.content,
+      });
+      fetchThreads();
+    } catch (error) {
+      console.log("Error creating thread: ", error);
+    }
+  };
 
   useEffect(() => {
     fetchThreads();

@@ -1,17 +1,18 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ListThreads = (props) => {
   return (
-    <div>
+    <>
       <h1>Threads</h1>
       {props.threads.map((thread) => (
         <div key={thread.key}>
-          <h2>{thread.title}</h2>
-          <p>{thread.content}</p>
-          <p>{thread.userKey}</p>
+          <Link to={`/thread/${thread.key}`} className="postTitle">
+            <h2>{thread.title}</h2>
+          </Link>
         </div>
       ))}
-    </div>
+    </>
   );
 };
 
