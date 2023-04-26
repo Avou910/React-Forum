@@ -12,6 +12,7 @@ import { firestore, auth } from "../services/firebase.js";
 import Thread from "../components/Thread.js";
 import ListComments from "../components/ListComments";
 import CreateComment from "../components/CreateComment";
+import "./CommentPage.css";
 
 /*
 TODO
@@ -73,15 +74,17 @@ const CommentPage = () => {
   }, []);
 
   return (
-    <>
+    <div className="commentpage-container">
       <Thread thread={thread} />
+      <div className="comments">
       <ListComments comments={comments} />
+      </div>
       {auth.currentUser != null ? (
         <CreateComment postComment={postComment} />
       ) : (
         "Please login to comment"
       )}
-    </>
+    </div>
   );
 };
 

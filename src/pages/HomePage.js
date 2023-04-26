@@ -2,17 +2,17 @@ import React from 'react';
 
 import { auth } from '../services/firebase'
 
-import ThreadPage from '../pages/ThreadPage';
+import ThreadPage from './ThreadPage';
 
-import '../App.css';
+import './HomePage.css';
 
 const Home = ({ user }) => {
   return (
     <div className="home-container">
-      <h1>Welcome to pokemon forum, <span></span>{user.displayName}</h1>
+      <h1>Welcome <span></span>{user.displayName}</h1>
       <img src={user.photoURL} alt="" />
       <button className="button signout" onClick={() => auth.signOut()}>Sign out</button>
-      <ThreadPage />
+      <ThreadPage/>
     </div>
   )
 }

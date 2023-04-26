@@ -46,8 +46,13 @@ const ThreadPage = () => {
 
   return (
     <div>
-      <ListThreads threads={threads} />
-      <CreateThread postThread={postThread} />
+      <div>
+        <CreateThread postThread={postThread} />
+      </div>
+      <div className="threadlist-container">
+        <ListThreads threads={threads} />
+      </div>
+      
     </div>
   );
 };

@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 
-import Login from "./components/Login";
-import Home from "./components/Home";
+import Login from "./pages/LoginPage";
+import Home from "./pages/HomePage";
 import firebase from "firebase/compat/app";
 import CommentPage from "./pages/CommentPage";
 
